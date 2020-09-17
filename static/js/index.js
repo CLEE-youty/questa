@@ -11,7 +11,6 @@ const submitText = () => {
   }
   return false;
 }
-
 sendChat.addEventListener('click', submitText)
 
 socket.on('message',  msg => {
