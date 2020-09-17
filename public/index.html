@@ -12,8 +12,10 @@
     <div class="section">
       <h1 class="app_title">Questa</h1>
       <p class="app_desc">＜プログラミング講座＞質問チャット</p>
-      <input id="editChat" autocomplete="off">
-      <button id="sendChat">送信</button>
+      <form onclick="return submitText()">
+        <input id="editChat" autocomplete="off">
+        <button id="sendChat">送信</button>
+      </form>
     </div>
     <div class="section">
       <ul id="receiveChat"></ul>
