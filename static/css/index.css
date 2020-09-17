@@ -1,0 +1,22 @@
+body {
+  background-color: #D2908C;
+  color: #FFFFFF;
+}
+
+.main {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  margin: 0 0 20px;
+}
+
+.app_title,
+.app_desc {
+  text-align: center;
+}
+
+.app_desc {
+  margin: 0 0 20px;
+}

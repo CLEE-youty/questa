@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questa</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <div class="main">
+    <div class="section">
+      <h1 class="app_title">Questa</h1>
+      <p class="app_desc">＜プログラミング講座＞質問チャット</p>
+      <input id="editChat" autocomplete="off">
+      <button id="sendChat">送信</button>
+    </div>
+    <div class="section">
+      <ul id="receiveChat"></ul>
+    </div>
+  </div>
+
+  <!-- socket.io -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="/js/index.js"></script>
+</body>
+</html>
