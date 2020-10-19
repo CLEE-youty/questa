@@ -2,14 +2,35 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const session = require('express-session');
 const PORT = process.env.PORT || 5000;
 
-app.get('/' , (req, res) => {
-   res.sendFile(__dirname + '/public/index.html')
-});
+// セッション管理
+app.use(session({
+  secret: "youty",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 1000 * 60 * 30 }
+}));
 
 // 静的資材パス指定
 app.use(express.static('static'))
+
+// 初期画面遷移設定
+app.get('/' , (req, res) => {
+  console.log(req.session.message);
+  if(req.session.message == undefined) {
+    res.sendFile(__dirname + '/public/index.html');
+  } else {
+    res.sendFile(__dirname + '/public/chat/index.html');
+  }
+});
+
+// ログイン管理
+app.post('/login', (req, res) => {
+  console.log('success');
+  // res.sendFile(__dirname + '/public/chat/index.html');
+})
 
 io.on('connection', socket => {
   console.log('socket connected');
@@ -19,7 +40,6 @@ io.on('connection', socket => {
     io.emit('message', msg);
   });
 });
-
 
 http.listen(PORT, () => {
   console.log('server listening. Port:' + PORT);

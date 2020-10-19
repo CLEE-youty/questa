@@ -20,6 +20,7 @@
   "homepage": "https://github.com/CLEE-youty/questa#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "socket.io": "^2.3.0"
   }
 }
