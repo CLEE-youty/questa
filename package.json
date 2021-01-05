@@ -1,6 +1,6 @@
 {
   "name": "questa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "質問用のチャットアプリ",
   "main": "app.js",
   "scripts": {

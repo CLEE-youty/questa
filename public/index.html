@@ -9,17 +9,20 @@
 </head>
 <body>
   <div class="main">
-    <div class="login_section">
-      <div class="section">
-        <h1 class="app_title">Questa</h1>
+    <div class="section">
+      <h1 class="app_title">Questa</h1>
+      <p class="app_desc">自由な質問チャット</p>
+    </div>
+    <div class="section">
+      <div id="scrollInner" class="receive_chat_area">
+        <ul id="receiveChat" class="receive_chat"></ul>
       </div>
-      <div class="section">
-      <div class="input_login_area">
-        <form>
-          <input type="password" id="inputPass" class="input_pass" autocomplete="off">
-          <button id="sendChat" class="submit_pass">ログイン</button>
-        </form>
-      </div>
+    </div>
+    <div class="section input_chat_area">
+      <form onsubmit="return false;">
+        <input id="editChat" class="edit_chat" autocomplete="off">
+        <button id="sendChat" class="submit_chat">送信</button>
+      </form>
     </div>
   </div>
 

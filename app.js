@@ -18,19 +18,8 @@ app.use(express.static('static'))
 
 // 初期画面遷移設定
 app.get('/' , (req, res) => {
-  console.log(req.session.message);
-  if(req.session.message == undefined) {
-    res.sendFile(__dirname + '/public/index.html');
-  } else {
-    res.sendFile(__dirname + '/public/chat/index.html');
-  }
+  res.sendFile(__dirname + '/public/index.html');
 });
-
-// ログイン管理
-app.post('/login', (req, res) => {
-  console.log('success');
-  // res.sendFile(__dirname + '/public/chat/index.html');
-})
 
 io.on('connection', socket => {
   console.log('socket connected');

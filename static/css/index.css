@@ -1,6 +1,6 @@
 body {
-  background-color: #D2908C;
-  color: #FFFFFF;
+  background-color: #d2908c;
+  color: #ffffff;
 }
 
 .main {
@@ -8,23 +8,6 @@ body {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-.login_section {
-  position: absolute;
-  width: 500px;
-  height: 400px;
-  margin: 0 auto;
-  padding: 0 20px;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-}
-
-@media (max-width: 568px) {
-  .login_section {
-    width: 100%;
-  }
 }
 
 .section {
@@ -37,21 +20,46 @@ body {
   text-align: center;
 }
 
-.app_title {
-  font-size: 60px;
+.app_desc {
+  margin: 0 0 20px;
 }
 
-@media (max-width: 568px) {
-  .app_title {
-    font-size: 12vw;
-  }
+/* チャット表示エリア */
+.receive_chat_area {
+  background-color: #ffffff;
+  box-shadow: 1px 1px 4px inset #d2908c;
+  color: #d2908c;
+  height: calc(100vh - 162px);
+  padding: 0 0 0 12px;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
 }
 
-/* ログインまわり */
-.input_login_area {
-  text-align: center;
+.receive_chat_area::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
 }
 
-.input_pass {
-  width: 60%;
+.receive_chat {
+  list-style-type: none;
+}
+
+/* チャット入力エリア */
+.input_chat_area {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* チャットコンテンツに余白 */
+.chat_content--left {
+  margin: 0 0 0 16px;
+}
+
+.edit_chat {
+  max-width: 300px;
+  width: 200px;
 }
