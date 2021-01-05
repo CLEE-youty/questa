@@ -32,7 +32,7 @@ socket.on('message', msg => {
   const newUserIDSpan = document.createElement('span');
   const newContentSpan = document.createElement('span');
   newContentSpan.classList.add('chat_content--left')
-  const newUserID = document.createTextNode(msg.userID);
+  const newUserID = document.createTextNode(`${msg.userID}さん`);
   const newContent = document.createTextNode(msg.msgTxt);
   newUserIDSpan.appendChild(newUserID);
   newContentSpan.appendChild(newContent);

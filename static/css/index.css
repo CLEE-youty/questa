@@ -1,5 +1,5 @@
 body {
-  background-color: #d2908c;
+  background-color: #203b4b;
   color: #ffffff;
 }
 
@@ -15,6 +15,12 @@ body {
 }
 
 /* タイトル系 */
+.app_title {
+  color: rgba(0 0 0 / 0);
+  letter-spacing: 0.1em;
+  -webkit-text-stroke: 1px #555555;
+  text-shadow: 1px 1px 0 #e76b6c;
+}
 .app_title,
 .app_desc {
   text-align: center;
@@ -27,8 +33,8 @@ body {
 /* チャット表示エリア */
 .receive_chat_area {
   background-color: #ffffff;
-  box-shadow: 1px 1px 4px inset #d2908c;
-  color: #d2908c;
+  box-shadow: 1px 1px 4px inset #203b4b;
+  color: #203b4b;
   height: calc(100vh - 162px);
   padding: 0 0 0 12px;
   overflow: scroll;
