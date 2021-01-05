@@ -1,6 +1,6 @@
 body {
-  background-color: #D2908C;
-  color: #FFFFFF;
+  background-color: #d2908c;
+  color: #ffffff;
 }
 
 .main {
@@ -25,9 +25,20 @@ body {
 }
 
 /* チャット表示エリア */
-.receie_chat_area {
+.receive_chat_area {
+  background-color: #ffffff;
+  box-shadow: 1px 1px 4px inset #d2908c;
+  color: #d2908c;
   height: calc(100vh - 162px);
+  padding: 0 0 0 12px;
   overflow: scroll;
+  -ms-overflow-style: none; /* IE, Edge 対応 */
+  scrollbar-width: none; /* Firefox 対応 */
+}
+
+.receive_chat_area::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
 }
 
 .receive_chat {
@@ -43,7 +54,12 @@ body {
   justify-content: space-between;
 }
 
+/* チャットコンテンツに余白 */
+.chat_content--left {
+  margin: 0 0 0 16px;
+}
+
 .edit_chat {
   max-width: 300px;
-  width: 240px;
+  width: 200px;
 }

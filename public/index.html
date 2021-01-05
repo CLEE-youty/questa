@@ -11,15 +11,15 @@
   <div class="main">
     <div class="section">
       <h1 class="app_title">Questa</h1>
-      <p class="app_desc">＜プログラミング講座＞質問チャット</p>
+      <p class="app_desc">自由な質問チャット</p>
     </div>
     <div class="section">
-      <div class="receie_chat_area">
+      <div id="scrollInner" class="receive_chat_area">
         <ul id="receiveChat" class="receive_chat"></ul>
       </div>
     </div>
     <div class="section input_chat_area">
-      <form onclick="return submitText()">
+      <form onsubmit="return false;">
         <input id="editChat" class="edit_chat" autocomplete="off">
         <button id="sendChat" class="submit_chat">送信</button>
       </form>

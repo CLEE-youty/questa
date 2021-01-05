@@ -4,18 +4,77 @@ const editChat = document.getElementById('editChat');
 const sendChat = document.getElementById('sendChat');
 const receiveChat = document.getElementById('receiveChat');
 
+/**
+ * メッセージ送信
+ */
 const submitText = () => {
+  if(!isIDStrings()) {
+    alert('userIDが無効です')
+    location.reload();
+    return;
+  }
   if(editChat.value) {
-    socket.emit('message', editChat.value);
+    const sendInfo = {
+      userID: isIDStrings(),
+      msgTxt: editChat.value,
+    }
+    socket.emit('message', sendInfo);
     editChat.value = '';
   }
-  return false;
 }
-sendChat.addEventListener('click', submitText)
+sendChat.addEventListener('click', submitText);
 
-socket.on('message',  msg => {
+/**
+ * メッセージ受信
+ */
+socket.on('message', msg => {
   const newElement = document.createElement('li');
-  const newContent = document.createTextNode(msg);
-  newElement.appendChild(newContent);
+  const newUserIDSpan = document.createElement('span');
+  const newContentSpan = document.createElement('span');
+  newContentSpan.classList.add('chat_content--left')
+  const newUserID = document.createTextNode(msg.userID);
+  const newContent = document.createTextNode(msg.msgTxt);
+  newUserIDSpan.appendChild(newUserID);
+  newContentSpan.appendChild(newContent);
+  newElement.appendChild(newUserIDSpan);
+  newElement.appendChild(newContentSpan);
   receiveChat.appendChild(newElement);
+
+  scrollToEnd();
 })
+
+/**
+ * userID
+ */
+const randomStrings = () => {
+  var S="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  var N=8
+  const randomSt = Array.from(Array(N)).map(()=>S[Math.floor(Math.random()*S.length)]).join('')
+  return randomSt;
+}
+
+const chkIDStrings = () => {
+  return(isIDStrings() ? true : false);
+}
+
+const setIDStrings = () => {
+  if(chkIDStrings()) {
+    return;
+  } else {
+    localStorage.setItem('userID', randomStrings());
+  }
+}
+
+const isIDStrings = () => {
+  return(localStorage.getItem('userID'));
+}
+
+setIDStrings();
+
+/**
+ * スクロールコンテンツを常に最新表示
+ */
+function scrollToEnd() {
+  const messagesArea = document.getElementById('scrollInner');
+  messagesArea.scrollTop = messagesArea.scrollHeight;
+}
